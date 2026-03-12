@@ -28,3 +28,62 @@ Parte de un ecosistema políglota:
 🔐 ms-auth (Python/FastAPI) : git@github.com:LuisChacha/fastapi-clean-architecture-auth.git
 
 ✅ ms-tasks-java (Este repositorio)
+
+---
+
+## TESTS DESDE LA TERMINAL
+
+### GET http://localhost:8080/api/v1/tasks/test
+
+No olvidar cambiar el token(obtenido en el login del ms-auth de python) en los siguientes comandos:
+
+```bash
+curl -X GET http://localhost:8080/api/v1/tasks/test -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzMyODU0MjEsInN1YiI6IjEifQ.SjfNvbl8eJ7YP53aaUpLtoKBL0NPNw-XhKAuknouHI4"
+```
+
+Output:
+
+Microservicio de Tareas (Java) respondiendo correctamente 🚀
+
+
+### POST http://localhost:8080/api/v1/tasks/
+
+```bash
+curl -X POST http://localhost:8080/api/v1/tasks/ \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzMyODk0OTIsInN1YiI6IjEifQ.HkKvaqCby6dmilo8BBb7IiXtMlPOCBO1E5Vam4om18E" \
+-H "Content-Type: application/json" \
+-d '{"title": "Tarea desde terminal3", "description": "Probando arquitectura políglota3"}'
+
+```
+### GET http://localhost:8080/api/v1/tasks/
+
+```
+curl -X GET http://localhost:8080/api/v1/tasks/ \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzMyODk0OTIsInN1YiI6IjEifQ.HkKvaqCby6dmilo8BBb7IiXtMlPOCBO1E5Vam4om18E" \
+     -H "Content-Type: application/json"
+```
+
+# Microservicio de Tareas (Java Spring Boot) 🚀
+
+Este microservicio forma parte de un ecosistema políglota, diseñado para gestionar tareas (To-Do) utilizando **Clean Architecture**.
+
+
+
+## 🚀 Instalación Rápida
+1. **Configurar el entorno:**
+   Asegúrate de tener corriendo el contenedor de PostgreSQL del proyecto `ms-auth`.
+
+2. **Variables de Entorno:**
+   Configura tu `application.properties` con la misma `SECRET_KEY` utilizada en el microservicio de Python.
+
+3. **Ejecución:**
+   ```bash
+   ./mvnw spring-boot:run
+
+## 🛠️ API Endpoints
+GET /api/v1/tasks/test - Público: Verifica la salud del servicio.
+
+GET /api/v1/tasks/ - Privado: Lista las tareas del usuario autenticado.
+
+POST /api/v1/tasks/ - Privado: Crea una nueva tarea asociada al ID del usuario en el token.
+
