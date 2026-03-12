@@ -1,0 +1,33 @@
+# Compilación y Binarios
+/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Maven Wrapper (Opcional: puedes subirlo, pero muchos prefieren ignorarlo)
+.mvn/
+mvnw
+mvnw.cmd
+
+# Logs y Temporales
+*.log
+/logs/
+temp/
+
+# Sistema Operativo y WSL
+.DS_Store
+Thumbs.db
+*~
+*.swp
+
+# Configuración local (¡Nunca subas tus llaves reales!)
+application-local.properties
+.env
